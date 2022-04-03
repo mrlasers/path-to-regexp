@@ -11,8 +11,7 @@ public/js
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
 # User-specific stuff
-playground-clj.iml
-playground-cljs.iml
+*.iml
 .idea/**
 .idea/**/workspace.xml
 .idea/**/tasks.xml

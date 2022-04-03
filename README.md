@@ -2,7 +2,7 @@
 
 ![Test](https://github.com/maksimr/path-to-regexp/workflows/Test/badge.svg)
 
-Library provided pattern matching for path
+Library provided pattern matching for paths
 
 ## Installation
 

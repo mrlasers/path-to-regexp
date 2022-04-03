@@ -2,7 +2,7 @@
   (:require [clojure.string :as string]))
 
 (defn path-to-regexp
-  "Convert passed path pattern to RegExp.
+  "Convert a passed path pattern to RegExp.
   Returns map with RegExp and path parameters"
   [path]
   (let [params (atom [])
@@ -14,7 +14,7 @@
                           (let [optional (or (= option "?") (= option "*?"))
                                 star (or (= option "*") (= option "*?"))]
                             (swap! params conj
-                              {:name param-name
+                              {:name     param-name
                                :optional optional})
                             (str
                               (if optional (str "(?:" slash) (str slash "(?:"))
@@ -25,8 +25,8 @@
      :regexp pattern}))
 
 (defn exec-path
-  "Match path pattern agains path.
-  Returns map with matched path parameters or nil if path does not match pattern"
+  "Match a path pattern again path.
+  Returns map with matched path parameters or nil if a path does not match the pattern"
   [parsed-path path]
   (let [matches (re-matches (:regexp parsed-path) path)]
     (if-not matches
@@ -37,7 +37,7 @@
         (map (fn [value param] [(keyword (:name param)) value]) (rest matches) (:params parsed-path))))))
 
 (defn match-path
-  "Match path against passed pattern and returns nil if path does not match pattern
+  "Match a path against a passed pattern and returns nil if the path does not match the pattern
   or map with matched path parameters"
   [path-pattern path]
   (let [parsed-path (path-to-regexp path-pattern)]

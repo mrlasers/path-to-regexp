@@ -1,0 +1,18 @@
+name: Test
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Clojure
+        run: |
+          sudo apt-get install -y rlwrap curl
+          curl -O https://download.clojure.org/install/linux-install-1.11.0.1100.sh
+          chmod +x linux-install-1.11.0.1100.sh
+          sudo ./linux-install-1.11.0.1100.sh
+      - name: Run tests
+        run: |
+          clj -X:test

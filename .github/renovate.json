@@ -1,0 +1,12 @@
+{
+  "extends": [
+    "config:base"
+  ],
+  "automerge": true,
+  "packageRules": [
+    {
+      "matchDatasources": ["clojure"],
+      "automerge": true
+    }
+  ]
+}

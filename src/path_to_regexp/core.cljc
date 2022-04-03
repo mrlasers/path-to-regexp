@@ -14,7 +14,7 @@
                           (let [optional (or (= option "?") (= option "*?"))
                                 star (or (= option "*") (= option "*?"))]
                             (swap! params conj
-                              {:name     param-name
+                              {:name param-name
                                :optional optional})
                             (str
                               (if optional (str "(?:" slash) (str slash "(?:"))

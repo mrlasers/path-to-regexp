@@ -16,6 +16,7 @@ jobs:
       - name: Run static tests
         run: |
           clj -M:lint
+          clj -M:format check
       - name: Run tests
         run: |
           clj -X:test

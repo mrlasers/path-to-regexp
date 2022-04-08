@@ -5,7 +5,7 @@
                                {:git/tag "v0.5.0" :git/sha "b3fd0d2"}}
                   :main-opts ["-m" "cognitect.test-runner"]
                   :exec-fn cognitect.test-runner.api/test}
-           :lint {:extra-deps {clj-kondo/clj-kondo {:mvn/version "2022.03.09"}}
+           :lint {:extra-deps {clj-kondo/clj-kondo {:mvn/version "2022.04.08"}}
                   :main-opts ["-m" "clj-kondo.main" "--lint" "src" "test"]}
            :format {:extra-paths ["scripts"]
                     :extra-deps {cljfmt/cljfmt {:mvn/version "0.8.0"}}

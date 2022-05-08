@@ -8,7 +8,8 @@
   (let [params (atom [])
         pattern (re-pattern
                   (str "^"
-                    (-> (string/replace path #"([().])" (fn [[_ c]] (str "\\" c)))
+                    (->
+                      (string/replace path #"([().])" (fn [[_ c]] (str "\\" c)))
                       (string/replace #"(\/)?:(\w+)(\*\?|[?*])?"
                         (fn [[_ slash param-name option]]
                           (let [optional (or (= option "?") (= option "*?"))

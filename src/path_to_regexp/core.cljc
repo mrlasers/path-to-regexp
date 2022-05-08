@@ -5,7 +5,7 @@
   "Convert a passed path pattern to RegExp.
   Returns map with RegExp and path parameters"
   [path]
-  (let [params (atom [])
+  (let [params* (transient [])
         pattern (re-pattern
                   (str "^"
                     (->
@@ -14,7 +14,7 @@
                         (fn [[_ slash param-name option]]
                           (let [optional (or (= option "?") (= option "*?"))
                                 star (or (= option "*") (= option "*?"))]
-                            (swap! params conj
+                            (conj! params*
                               {:name param-name
                                :optional optional})
                             (str
@@ -22,7 +22,7 @@
                               (if star "([^#?]+?)" "([^/#?]+)")
                               (if optional "?)?" ")")))))
                       (str "(?:[?#].*|$)"))))]
-    {:params @params
+    {:params (persistent! params*)
      :regexp pattern}))
 
 (defn exec-path

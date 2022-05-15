@@ -3,9 +3,10 @@
             [path-to-regexp.core :refer [match-path path-to-regexp]]))
 
 (t/deftest match-path-test
-  (t/is (= (match-path "/foo/:id" "/foo/1") {:id "1"}))
-  (t/is (= (match-path "/foo/:id" "/foo") nil))
-  (t/is (= (match-path "/foo/:id?" "/foo") {:id nil})))
+  (t/are [path-template path params] (= (match-path path-template path) params)
+    "/foo/:id" "/foo/1" {:id "1"}
+    "/foo/:id" "/foo" nil
+    "/foo/:id?" "/foo" {:id nil}))
 
 (t/deftest path-to-regexp-test
   (t/is (= ((path-to-regexp "/foo/:id/bar/:barId?") :params)

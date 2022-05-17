@@ -9,4 +9,6 @@
                   :main-opts ["-m" "clj-kondo.main" "--lint" "src" "test"]}
            :format {:extra-paths ["scripts"]
                     :extra-deps {cljfmt/cljfmt {:mvn/version "0.8.0"}}
-                    :main-opts ["-m" "tools.format"]}}}
+                    :main-opts ["-m" "tools.format"]}
+           :eastwood {:main-opts ["-m" "eastwood.lint" {}]
+                      :extra-deps {jonase/eastwood {:mvn/version "1.2.3"}}}}}

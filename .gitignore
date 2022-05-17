@@ -3,6 +3,7 @@ public/js
 .shadow-cljs
 .calva
 .lsp
+.eastwood
 # Created by https://www.gitignore.io/api/intellij,vim,node,visualstudiocode
 # Edit at https://www.gitignore.io/?templates=intellij,vim,node,visualstudiocode
 

@@ -1,5 +1,6 @@
 dist/
 public/js
+.DS_Store
 .shadow-cljs
 .calva
 .lsp

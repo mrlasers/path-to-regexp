@@ -10,7 +10,7 @@
                   (str "^"
                     (->
                       (string/replace path #"([().])" (fn [[_ c]] (str "\\" c)))
-                      (string/replace #"(\/)?:(\w+)(\*\?|[?*])?"
+                      (string/replace #"(/)?:(\w+)(\*\?|[?*])?"
                         (fn [[_ slash param-name option]]
                           (let [optional (or (= option "?") (= option "*?"))
                                 star (or (= option "*") (= option "*?"))]
